@@ -1,14 +1,14 @@
-echo 'import requests
+import requests
 from config import API_BASE_URL
+from datetime import datetime
 
 def fetch_data(endpoint):
     response = requests.get(f"{API_BASE_URL}/{endpoint}")
     response.raise_for_status()
     return response.json()
 
-def format_output(data):
-    return "\n".join([f"- {item['\''title'\'']}" for item in data[:5]])' > utils.py
+def format_output(data, limit=3):
+    return "\n".join([f"{i+1}. {item['title']}" for i, item in enumerate(data[:limit])])
 
 def get_timestamp():
-	import datetime
-	return datetime.datetime.now().isformat()
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
