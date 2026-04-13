@@ -9,3 +9,6 @@ def fetch_data(endpoint):
 def format_output(data):
     return "\n".join([f"- {item['\''title'\'']}" for item in data[:5]])' > utils.py
 
+def get_timestamp():
+	import datetime
+	return datetime.datetime.now().isformat()
